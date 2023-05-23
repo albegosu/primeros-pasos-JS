@@ -78,23 +78,59 @@ function sumarNum(a, b) {
 sumarNum(2, 3);
 
 // ● Crear función que determine si un número es par o impar. Deberás imprimir el resultado por la pantalla del navegador y la consola. T5 PRIMEROS PASOS CON JS
-function parOrImpar (num) {
-    
-}
+
 
 // OBJETOS
 // Todo lo que retorne cada función se debe imprimir el resultado por la pantalla del navegador y la consola.
 // ● Crear un objeto carro haciendo la abstracción de sus atributos y un objeto anidado.
-// ● Crear una función que devuelva la marca del carro.
-// ● Crear una función que devuelva la cantidad de puertas que tiene el carro.
-// ● Crear una función que devuelva un atributo del objeto anidado.
+const carro = {
+    brand: "Ford",
+    model: "Fiesta",
+    color: "Rojo",
+    potencia: "110CV",
+    puertas: "5",
+}
 
+// ● Crear una función que devuelva la marca del carro.
+function giveBrand(carroProperties) {
+    console.log(carroProperties);
+}
+giveBrand(carro.brand);
+createParagraph(carro.brand);
+
+// ● Crear una función que devuelva la cantidad de puertas que tiene el carro.
+giveBrand(carro.puertas);
+createParagraph(carro.puertas);
+
+// ● Crear una función que devuelva un atributo del objeto anidado.
+giveBrand(carro.color);
+createParagraph(carro.color);
 
 // ARRAYS
+
 // ● Crear un array de 10 números
+let newArray = [2, 23, 56, 4, 7, 32, 29, 70, 101, 3];
+
 // ● Crear una función que imprima en consola todos los números de un array (Investigar ciclo for)
+function allArray(nameArray) {
+    for(i = 0; i < nameArray.length; i++) {
+        console.log(nameArray[i]);
+        createParagraph(nameArray[i]);
+    };
+};
+allArray(newArray);
+
 // ● Crear una función que añada un número al array
+function addToArray(nameArray,newData) {
+    nameArray.push(newData);
+    let lastChild = nameArray.slice(-1);
+    console.log(lastChild);
+    createParagraph(lastChild);
+};
+addToArray(newArray,77);
+
 // ● Crear una función que elimine los números pares de ese array.
+
 // ● Crear una función que devuelva el número mayor de un array.
 // ● Crear una función que devuelva el número menor de un array.
 // ● Crear un función que convierta en minúsculas todas las letras de un texto.
