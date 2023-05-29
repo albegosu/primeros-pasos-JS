@@ -5,6 +5,14 @@ function createParagraph(value) {
     paragraph.appendChild(text); 
     document.body.appendChild(paragraph); 
   }
+//Función para crear un párrafo Y UN CONSOLE LOG con cada valor que tomen las variables.
+function createParClg(value) {
+    let paragraph = document.createElement("p");
+    let text = document.createTextNode(value); 
+    paragraph.appendChild(text); 
+    document.body.appendChild(paragraph); 
+    console.log(value);
+  }
 
 // VARIABLES
 
@@ -130,12 +138,69 @@ function addToArray(nameArray,newData) {
 addToArray(newArray,77);
 
 // ● Crear una función que elimine los números pares de ese array.
+let oddArray = [];
+function lessEven (nameArray) {
+    for (let i=0; i<nameArray.length; i++) {
+        if (nameArray[i] % 2 !== 0){
+            oddArray.push(nameArray[i]);
+        }
+    }
+};
+
+createParClg('Este es el Array antes del filtrado ' + newArray);
+lessEven(newArray);
+createParClg('Este es el Array después del filtrado ' + oddArray);
 
 // ● Crear una función que devuelva el número mayor de un array.
+createParClg('El mayor número del Array es ' + Math.max(...newArray));
+
 // ● Crear una función que devuelva el número menor de un array.
+createParClg('El menor número del Array es ' + Math.min(...newArray));
+
 // ● Crear un función que convierta en minúsculas todas las letras de un texto.
+const lettersArray = ['BEGOÑA', 'MAriA', 'maNUeLa', 'kori', 'Alberto'];
+let lowerArray = [];
+
+function letsLower(nameArray, newLowArray) {
+    for (i=0; i < nameArray.length; i++){
+        newLowArray.push(nameArray[i].toLowerCase());
+    }
+};
+
+createParClg('Este es el Array de super nombres ' + lettersArray);
+letsLower(lettersArray, lowerArray);
+createParClg('Este es el Array en minúsculas ' + lowerArray);
+
 // ● Crear una función que convierta en mayúsculas todas las letras de un texto.
+const lettersUpArray = ['BEGOÑA', 'MAriA', 'maNUeLa', 'kori', 'Alberto'];
+let upperArray = [];
+
+function letsUpper(nameArray, newUpperArray) {
+    for (i=0; i < nameArray.length; i++ ){
+        newUpperArray.push(nameArray[i].toUpperCase());
+    }
+};
+
+createParClg('Este es el Array de super nombres ' + lettersUpArray);
+letsUpper(lettersUpArray, upperArray);
+createParClg('Este es el Array en minúsculas ' + upperArray);
+
 // ● Crear una función que reciba un array de nombres y que convierta la primera letra de cada nombre en mayúscula.
+const beautifulNames = ['BEGOÑA', 'MAriA', 'maNUeLa', 'kori', 'Alberto'];
+let allLower = [];
+let mostBeautiful = [];
+
+letsLower(beautifulNames, allLower);
+createParClg(allLower);
+
+function upperFirstLetter (nameArray, cleanNames) {
+    nameArray.map(function(element) {
+        cleanNames.push(element.charAt(0).toUpperCase() + element.slice(1));
+     })
+};
+
+upperFirstLetter(allLower, mostBeautiful);
+createParClg(mostBeautiful);
 
 
 // MANIPULACIÓN DEL DOM
