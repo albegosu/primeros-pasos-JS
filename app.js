@@ -3,16 +3,18 @@ function createParagraph(value) {
     let paragraph = document.createElement("p");
     let text = document.createTextNode(value); 
     paragraph.appendChild(text); 
-    document.body.appendChild(paragraph); 
-  }
+    let newMain = document.getElementById("main");
+    newMain.appendChild(paragraph); 
+  };
 //Función para crear un párrafo Y UN CONSOLE LOG con cada valor que tomen las variables.
 function createParClg(value) {
     let paragraph = document.createElement("p");
     let text = document.createTextNode(value); 
     paragraph.appendChild(text); 
-    document.body.appendChild(paragraph); 
+    let newMain = document.getElementById("main");
+    newMain.appendChild(paragraph); 
     console.log(value);
-  }
+  };
 
 // VARIABLES
 
@@ -90,6 +92,7 @@ sumarNum(2, 3);
 
 // OBJETOS
 // Todo lo que retorne cada función se debe imprimir el resultado por la pantalla del navegador y la consola.
+
 // ● Crear un objeto carro haciendo la abstracción de sus atributos y un objeto anidado.
 const carro = {
     brand: "Ford",
@@ -204,14 +207,42 @@ createParClg(mostBeautiful);
 
 
 // MANIPULACIÓN DEL DOM
+function createContainer() {
+    let message = prompt("Hello, escribe algo: ");
+    document.getElementById("txtBox").innerHTML = message;
+    console.log(message);
+  };
 // ● Crear un botón en HTML y usar JavaScript para mostrar un mensaje cuando se hace clic.
+  let btn = document.getElementById("btn");
+  btn.addEventListener("click", createContainer);
+
 // ● Cambiar el contenido de un elemento HTML mediante JavaScript.
+let printMessage;
+let message = ["Te cambié", "Tremendo cambio", "No te lo esperabas...", "Bueno, pues adiós", "CHORPRECHAAAAA!"];
+
+function randomMessage(arrayMessage, print) {
+    for (i=0; i < arrayMessage.length; i++) {
+        return print = arrayMessage[i];
+    };
+  document.getElementById("lorem").innerHTML = randomMessage(message, printMessage);
+};
+let btnChange = document.getElementById("btnChange");
+btnChange.addEventListener("click", randomMessage);
+
 // ● Ocultar y mostrar elementos HTML utilizando JavaScript.
+
 // ● Crear un array de 10 nombres.
+
 // ● Crear una función que imprima en pantalla una lista con los nombres del array de nombres.
+
 // ● Crear un array de números.
+
 // ● Crear una función que pinte en pantalla cuántos números tiene el array de números.
+
 // ● Crea los nodos necesarios para imprimir un formulario.
+
 // ● Crea los nodos necesarios para imprimir una tabla.
+
 // ● Crea array de objetos 10 objetos con su respectivos key:value. Cada objeto deberá tener las siguientes keys: id, name, status, species, type, gender El value de cada key lo asignas tú
+
 // ● Imprime cada elemento del objeto dentro de la tabla que creaste anteriormente.
