@@ -16,6 +16,14 @@ function createParClg(value) {
     console.log(value);
   };
 
+function createH2(value) {
+    let header = document.createElement("h2");
+    let text = document.createTextNode(value); 
+    header.appendChild(text); 
+    let newHeader = document.getElementById("main");
+    newHeader.appendChild(header); 
+};
+
 // VARIABLES
 
 // ● Crear variables de diferentes tipos de datos: número, cadena de texto, booleano e imprimir su valor por la pantalla del navegador y la consola.
@@ -27,6 +35,8 @@ let string2 = 'adios';
 let string3 = '¿qué tal?';
 let bool = true;
 let bool1 = false;
+
+createH2("Variables");
 
 console.log('El valor de num es ' + num);
 createParagraph('El valor de num es ' + num);
@@ -72,6 +82,7 @@ createParagraph(array);
 
 
 // FUNCIONES
+createH2("Funciones");
 
 // ● Crear una función que imprima por la pantalla del navegador y la consola el mensaje "Hola, [nombre]" con un parámetro para el nombre.
 function helloWorld(nombre) {
@@ -92,6 +103,7 @@ sumarNum(2, 3);
 
 // OBJETOS
 // Todo lo que retorne cada función se debe imprimir el resultado por la pantalla del navegador y la consola.
+createH2("Objetos");
 
 // ● Crear un objeto carro haciendo la abstracción de sus atributos y un objeto anidado.
 const carro = {
@@ -118,6 +130,7 @@ giveBrand(carro.color);
 createParagraph(carro.color);
 
 // ARRAYS
+createH2("Arrays")
 
 // ● Crear un array de 10 números
 let newArray = [2, 23, 56, 4, 7, 32, 29, 70, 101, 3];
@@ -207,42 +220,191 @@ createParClg(mostBeautiful);
 
 
 // MANIPULACIÓN DEL DOM
+  function createHeader(value) {
+    let header = document.createElement("h2");
+    let text = document.createTextNode(value); 
+    header.appendChild(text); 
+    let newContainer = document.getElementById("container");
+    newContainer.appendChild(header); 
+    console.log(value);
+};
+
+// ● Crear un botón en HTML y usar JavaScript para mostrar un mensaje cuando se hace clic.
 function createContainer() {
     let message = prompt("Hello, escribe algo: ");
     document.getElementById("txtBox").innerHTML = message;
     console.log(message);
   };
-// ● Crear un botón en HTML y usar JavaScript para mostrar un mensaje cuando se hace clic.
-  let btn = document.getElementById("btn");
-  btn.addEventListener("click", createContainer);
+
+    let btn = document.getElementById("btn");
+    btn.addEventListener("click", createContainer);
 
 // ● Cambiar el contenido de un elemento HTML mediante JavaScript.
-let printMessage;
-let message = ["Te cambié", "Tremendo cambio", "No te lo esperabas...", "Bueno, pues adiós", "CHORPRECHAAAAA!"];
+const message = ["Te cambié", "Tremendo cambio", "No te lo esperabas...", "Bueno, pues adiós", "CHORPRECHAAAAA!"];
 
-function randomMessage(arrayMessage, print) {
-    for (i=0; i < arrayMessage.length; i++) {
-        return print = arrayMessage[i];
-    };
-  document.getElementById("lorem").innerHTML = randomMessage(message, printMessage);
+function printRandomMessage() {
+    const paragraph = document.getElementById('lorem');
+    const randomNumber = Math.floor(Math.random() * message.length);
+    const randomMessage = message[randomNumber];
+    paragraph.textContent = randomMessage;
 };
-let btnChange = document.getElementById("btnChange");
-btnChange.addEventListener("click", randomMessage);
 
-// ● Ocultar y mostrar elementos HTML utilizando JavaScript.
+const btnChange = document.getElementById("btnChange");
+btnChange.addEventListener("click", printRandomMessage);
 
 // ● Crear un array de 10 nombres.
+const names = ['Rocio', 'Pedro', 'Juan', 'María', 'Dario', 'Susana', 'Antonio', 'Patricia', 'Daniel', 'Lucia'];
 
 // ● Crear una función que imprima en pantalla una lista con los nombres del array de nombres.
+function namesUl(nombres) {
+    const lista = document.createElement('ul');
+    nombres.forEach((nombre) => {
+      const item = document.createElement('li');
+      item.textContent = nombre;
+      lista.appendChild(item);
+    });
+    return lista;
+  }
+
+  const namesList = namesUl(names);
+  const container = document.getElementById('names-list');
+  container.appendChild(namesList);
 
 // ● Crear un array de números.
+const numbers = [1, 23, 4, 2121, 12, 32, 21, 124, 142131, 12, 1277, 864, 3]
 
 // ● Crear una función que pinte en pantalla cuántos números tiene el array de números.
+function createParRight(value) {
+    let paragraph = document.createElement("p");
+    let text = document.createTextNode(value); 
+    paragraph.appendChild(text); 
+    let newContainer = document.getElementById("container");
+    newContainer.appendChild(paragraph); 
+    console.log(value);
+  };
+
+createHeader('Array de números:');
+createParRight('El array de números contiene ' + numbers.length + ' números.');
 
 // ● Crea los nodos necesarios para imprimir un formulario.
-
+function printForm() {
+    const form = document.createElement('form');
+    form.setAttribute('id', 'miFormulario');
+  
+    const labelNombre = document.createElement('label');
+    labelNombre.textContent = 'Nombre:';
+    const inputNombre = document.createElement('input');
+    inputNombre.setAttribute('type', 'text');
+    inputNombre.setAttribute('name', 'nombre');
+  
+    const labelEmail = document.createElement('label');
+    labelEmail.textContent = 'Apellido:';
+    const inputEmail = document.createElement('input');
+    inputEmail.setAttribute('type', 'text');
+    inputEmail.setAttribute('name', 'apellido');
+  
+    const botonEnviar = document.createElement('button');
+    botonEnviar.setAttribute('type', 'submit');
+    botonEnviar.textContent = 'Enviar';
+  
+    form.appendChild(labelNombre);
+    form.appendChild(inputNombre);
+    form.appendChild(labelEmail);
+    form.appendChild(inputEmail);
+    form.appendChild(botonEnviar);
+  
+    const contenedor = document.getElementById('container');
+    contenedor.appendChild(form);
+  }
+  
+  createHeader("Form creado en JS");
+  printForm();
+  
 // ● Crea los nodos necesarios para imprimir una tabla.
+function printChart() {
+    const chartData = [
+      { nombre: 'Kenzo', edad: 6, raza: 'Border' },
+      { nombre: 'Kora', edad: 4, raza: 'Border' },
+      { nombre: 'Thor', edad: 7, raza: 'Golden' },
+      { nombre: 'Gizmo', edad: 3, raza: 'Pastos' }
+    ];
+  
+    const chart = document.createElement('table');
+    const titleChart = document.createElement('thead');
+    const bodyChart = document.createElement('tbody');
+  
+    const rowTitle = document.createElement('tr');
+    const columnTitle = document.createElement('th');
+    columnTitle.textContent = 'Nombre';
+    const edadTitle = document.createElement('th');
+    edadTitle.textContent = 'Edad';
+    const razaTitle = document.createElement('th');
+    razaTitle.textContent = 'Raza';
+  
+    rowTitle.appendChild(columnTitle);
+    rowTitle.appendChild(edadTitle);
+    rowTitle.appendChild(razaTitle);
+    titleChart.appendChild(rowTitle);
+    chart.appendChild(titleChart);
+  
+    chartData.forEach((dato) => {
+      const row = document.createElement('tr');
+      const nombreCell = document.createElement('td');
+      nombreCell.textContent = dato.nombre;
+      const edadCell = document.createElement('td');
+      edadCell.textContent = dato.edad;
+      const razaCell = document.createElement('td');
+      razaCell.textContent = dato.raza;
+  
+      row.appendChild(nombreCell);
+      row.appendChild(edadCell);
+      row.appendChild(razaCell);
+      bodyChart.appendChild(row);
+    });
+  
+    chart.appendChild(bodyChart);
+  
+    const contenedor = document.getElementById('container');
+    contenedor.appendChild(chart);
+  }
+  
+  createHeader('Tabla creada en JS')
+  printChart();
 
 // ● Crea array de objetos 10 objetos con su respectivos key:value. Cada objeto deberá tener las siguientes keys: id, name, status, species, type, gender El value de cada key lo asignas tú
+const arrayObjects = [
+    { id: 1, name: "Rocio", status: true, species: "Human", type: "user", gender: "Female" },
+    { id: 2, name: "Pedro", status: true, species: "Human", type: "user", gender: "Male" },
+    { id: 3, name: "Juan", status: false, species: "Human", type: "user", gender: "Male" },
+    { id: 4, name: "Maria", status: false, species: "Human", type: "administrator", gender: "Female" },
+    { id: 5, name: "Dario", status: true, species: "Human", type: "user", gender: "Male" },
+    { id: 6, name: "Susana", status: false, species: "Human", type: "user", gender: "Female" },
+    { id: 7, name: "Antonio", status: false, species: "Human", type: "user", gender: "Male" },
+    { id: 8, name: "Patricia", status: true, species: "Human", type: "user", gender: "Female" },
+    { id: 9, name: "Daniel", status: true, species: "Human", type: "user", gender: "Male" },
+    { id: 10, name: "Lucia", status: true, species: "Human", type: "user", gender: "Female" }
+  ];
 
 // ● Imprime cada elemento del objeto dentro de la tabla que creaste anteriormente.
+function printObjects(array) {
+    const container = document.getElementById('container');
+    const list = document.createElement('ul');
+  
+    array.forEach(users => {
+      const item = document.createElement('li');
+      const properties = Object.entries(users);
+  
+      properties.forEach(([key, value]) => {
+        const property = document.createElement('span');
+        property.textContent = `${key}: ${value}`;
+        item.appendChild(property);
+      });
+  
+      list.appendChild(item);
+    });
+  
+    container.appendChild(list);
+  }
+
+  createHeader('Objetos de un Array')
+  printObjects(arrayObjects);
